@@ -1,0 +1,144 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+# central_west:
+#   type: pandas.CSVDataSet
+#   filepath: data/01_raw/central_west.csv
+  # fs_args:
+  #   open_args_load:
+  #     encoding: latin-1
+
+# north:
+#   type: pandas.CSVDataSet
+#   filepath: data/01_raw/north.csv
+  # fs_args:
+  #   open_args_load:
+  #     encoding: latin-1
+
+northeast:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/northeast.csv
+  fs_args:
+    open_args_load:
+      encoding: latin-1
+
+# south:
+#   type: pandas.CSVDataSet
+#   filepath: data/01_raw/south.csv
+  # fs_args:
+  #   open_args_load:
+  #     encoding: latin-1
+
+southeast:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/southeast.csv
+  fs_args:
+    open_args_load:
+      encoding: latin-1
+
+concat_df:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/concat_df.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+clean_df:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/clean_df.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+  
+transformer:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/transformer.pkl
+
+x_train:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/x_train.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+y_train:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/y_train.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+x_test:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/x_test.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+y_test:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/y_test.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+x_train_transformed:
+  type: pickle.PickleDataSet
+  filepath: data/04_features/x_train_transformed.pkl
+
+x_test_transformed:
+  type: pickle.PickleDataSet
+  filepath: data/04_features/x_test_transformed.pkl
+
+regressor:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/regressor.pkl
+
+y_predicted:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/y_predicted.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+y_predicted:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/y_predicted.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+y_predicted_zero:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/y_predicted_zero.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: False
+    encoding: latin-1
+
+score:
+  type: text.TextDataSet
+  filepath: data/08_reporting/score.txt
+
+score_zero:
+  type: text.TextDataSet
+  filepath: data/08_reporting/score_zero.txt
