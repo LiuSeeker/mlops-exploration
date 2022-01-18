@@ -1,0 +1,52 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/life-expectancy.csv
+
+clean_data:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/clean_data.csv
+
+transformer:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/transformer.pkl
+
+x_train:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/x_train.csv
+
+y_train:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/y_train.csv
+
+x_test:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/x_test.csv
+
+y_test:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/y_test.csv
+
+x_train_transformed:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/x_train_transformed.pkl
+
+x_test_transformed:
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/x_test_transformed.pkl
+
+regressor:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/regressor.pkl
+
+y_predicted:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/y_predicted.csv
+
+score:
+  type: text.TextDataSet
+  filepath: data/08_reporting/score.txt
